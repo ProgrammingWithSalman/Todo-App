@@ -14,6 +14,12 @@ export const getAllTodos = async (req, res) => {
 export const createTodo = async (req, res) => {
   try {
     const {title, status} = req.body;
+    const validStatuses = ['pending', 'in-progress', 'completed'];
+
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" });
+    }
+
     const newTodo = await Todo.create({
       title,
       status
@@ -28,12 +34,19 @@ export const createTodo = async (req, res) => {
 export const updateTodo = async (req, res) => {
   try {
     const { id } = req.params;
-  const { title, status } = req.body;
-  const updatedTodo = await Todo.findByIdAndUpdate(id, {title, status}, {new: true});
-  if (!updatedTodo) {
-    return res.status(404).json({message: "Todo not found"});
-  }
-  return res.send(updatedTodo)
+    const { title, status } = req.body;
+    const validStatuses = ['pending', 'in-progress', 'completed'];
+
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" });
+    }
+
+
+    const updatedTodo = await Todo.findByIdAndUpdate(id, {title, status}, {new: true});
+    if (!updatedTodo) {
+      return res.status(404).json({message: "Todo not found"});
+    }
+    return res.send(updatedTodo)
   } catch (error) {
     console.error("Error updating todo:", error);
     return res.status(500).json({message: "Internal server error"});

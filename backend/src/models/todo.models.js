@@ -6,9 +6,10 @@ const todoSchema = new mongoose.Schema({
     required: true
   },
   status: {
-    type: String,
-    required: true
-  }
+  type: String,
+  enum: ["pending", "in-progress", "completed"],
+  default: "pending",
+},
 })
 
 const Todo = mongoose.model("todo", todoSchema)
