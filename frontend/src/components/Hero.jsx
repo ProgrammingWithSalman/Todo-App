@@ -16,7 +16,7 @@ const Hero = () => {
       return;
     }
 
-    const status = isCompleted ? 'competed' : 'pending'
+    const status = isCompleted ? 'completed' : 'pending'
 
     try {
       const response = await axios.post('http://localhost:5001/api/todos', {title, status });
