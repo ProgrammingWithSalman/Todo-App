@@ -65,24 +65,24 @@ const Hero = () => {
     
 
     return (
-      <div className='bg-[#9BD9DA] min-h-screen flex flex-col items-center pt-8'>
-        <form className='flex items-center w-[900px]' onSubmit={handleSubmit}>
+      <div className='bg-[#9BD9DA] min-h-screen  flex flex-col items-center pt-8'>
+        <form className='flex items-center justify-center md:w-[900px] md:ml-[5px] w-[400px]' onSubmit={handleSubmit}>
           <input 
-            className='bg-white px-5 py-3 w-[800px] text-2xl rounded-tl-4xl rounded-bl-4xl outline-none' type="text" 
+            className='bg-white px-5 py-3 w-[300px] md:text-2xl md:w-[800px]  rounded-tl-4xl rounded-bl-4xl outline-none' type="text" 
             placeholder='Add new note here...' 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
          
-           <button type='submit' className='bg-[#FF5845] px-5 py-3 rounded-tr-4xl rounded-br-4xl text-2xl text-white font-bold cursor-pointer'>{editId ? 'UPDATE' : 'ADD'}</button>
+           <button type='submit' className='bg-[#FF5845] px-5 py-3 rounded-tr-4xl rounded-br-4xl md:text-2xl text-white font-bold cursor-pointer'>{editId ? 'UPDATE' : 'ADD'}</button>
     
         </form>
         {todos.length === 0 && <div className='flex flex-col h-100 text-3xl items-center text-white font-bold justify-center'>
           <p className='text-center'>There is no Todo here yet!</p>
           <p className='text-2xl'>Add a todo.</p>
         </div> }
-        <div className='flex flex-col gap-5 mt-10'>
-          <TodoItems todos={todos} setTodos={setTodos} onEdit={handleEdit}  fetchTodos={fetchTodos}/>
+        <div className='flex flex-col gap-2 md:gap-5 mt-10  justify-center items-center mb-5'>
+          <TodoItems todos={todos} onEdit={handleEdit}  fetchTodos={fetchTodos}/>
         </div>
       </div>
     )

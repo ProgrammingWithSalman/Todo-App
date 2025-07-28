@@ -1,16 +1,15 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { FiEdit, FiTrash2 } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 
 
-const TodoItems =   ({ todos, setTodos, onEdit, fetchTodos }) => {
+const TodoItems =   ({ todos, onEdit, fetchTodos }) => {
  
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5001/api/todos/${id}`)
+      await axios.delete(`http://localhost:5001/api/todos/${id}`)
       toast.success("Deleted successfully!");
       fetchTodos();
     } catch (error) {
@@ -41,15 +40,15 @@ const TodoItems =   ({ todos, setTodos, onEdit, fetchTodos }) => {
     <div className='flex flex-col gap-3'>
     {todos.map((todo, _i) => (
 
-    <div key={_i} className='w-[1000px] max-w-3xl flex items-center justify-between  bg-[#ECFAF3] px-7 py-5  gap-7 rounded-xl'>
+    <Link to={`/${todo._id}`} key={_i} className='md:w-[1000px] w-[350px] max-w-3xl flex items-center justify-between  bg-[#ECFAF3] px-3 py-4 md:px-4 md:py-5 gap-2 md:gap-5 rounded-md md:rounded-xl cursor-pointer'>
       <input 
         type="checkbox" 
-        className='size-7 shrink-0'
+        className='size-5 md:size-7 shrink-0'
         checked={todo.status === "completed" ? true : false }
         onChange={(e) => handleStatusChange(todo._id,  e.target.checked ? "completed" : "pending" )}
       />
-      <span className={`text-2xl font-[500] whitespace-nowrap truncate overflow-hidden max-w-2xl flex-1 ${todo.status === "completed" ? "line-through" : ""}`}>{todo.title}</span>
-      <div className='flex items-center text-4xl ml-3 gap-2 shrink-0'>
+      <span className={`md:text-2xl text-md font-[500] whitespace-nowrap truncate overflow-hidden max-w-2xl flex-1 ${todo.status === "completed" ? "line-through" : ""}`}>{todo.title}</span>
+      <div className='flex items-center text-2xl md:text-4xl ml-3 gap-2 shrink-0'>
         <button className='cursor-pointer' onClick={() => handleUpdate(todo)}>
           <FiEdit />
         </button>
@@ -58,7 +57,7 @@ const TodoItems =   ({ todos, setTodos, onEdit, fetchTodos }) => {
         </button>
       </div>
 
-    </div>
+    </Link>
   ))}
   </div>
   )
