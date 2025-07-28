@@ -77,6 +77,10 @@ const Hero = () => {
            <button type='submit' className='bg-[#FF5845] px-5 py-3 rounded-tr-4xl rounded-br-4xl text-2xl text-white font-bold cursor-pointer'>{editId ? 'UPDATE' : 'ADD'}</button>
     
         </form>
+        {todos.length === 0 && <div className='flex flex-col h-100 text-3xl items-center text-white font-bold justify-center'>
+          <p className='text-center'>There is no Todo here yet!</p>
+          <p className='text-2xl'>Add a todo.</p>
+        </div> }
         <div className='flex flex-col gap-5 mt-10'>
           <TodoItems todos={todos} setTodos={setTodos} onEdit={handleEdit}  fetchTodos={fetchTodos}/>
         </div>
