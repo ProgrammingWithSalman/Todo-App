@@ -1,34 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { FiEdit, FiTrash2 } from 'react-icons/fi'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { FiEdit, FiTrash2 } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
-const TodoItems =   () => {
-  const [todos, setTodos] = useState([]);
-  const [isCompleted, setIsCompleted] = useState(false)
-  console.log(todos)
 
-   const fetchTodos = async () => {
-    try {
-      const res = await axios.get("http://localhost:5001/api/todos")
-       setTodos(res.data)
-       if( res.data.status === "completed") {
-        setIsCompleted(true);
-       }
-       
-    } catch (error) {
-      console.error("error While fetching Todos")
-      toast.error("Can't fetch Todos")
-    }
-    }
 
-  useEffect (() => {
-    fetchTodos();
-  },[])
-
+const TodoItems =   ({ todos, setTodos, onEdit, fetchTodos }) => {
+ 
   const handleDelete = async (id) => {
-    console.log(id)
     try {
       const res = await axios.delete(`http://localhost:5001/api/todos/${id}`)
       toast.success("Deleted successfully!");
@@ -52,6 +32,9 @@ const TodoItems =   () => {
     }
   };
 
+  const handleUpdate = (todo) => {
+  onEdit(todo); // Sends data up to Hero.jsx
+};
 
 
   return (
@@ -62,14 +45,14 @@ const TodoItems =   () => {
       <input 
         type="checkbox" 
         className='size-7 shrink-0'
-        checked={isCompleted}
+        checked={todo.status === "completed" ? true : false }
         onChange={(e) => handleStatusChange(todo._id,  e.target.checked ? "completed" : "pending" )}
       />
-      <span className='text-2xl font-[500] whitespace-nowrap truncate overflow-hidden max-w-2xl flex-1'>{todo.title}</span>
+      <span className={`text-2xl font-[500] whitespace-nowrap truncate overflow-hidden max-w-2xl flex-1 ${todo.status === "completed" ? "line-through" : ""}`}>{todo.title}</span>
       <div className='flex items-center text-4xl ml-3 gap-2 shrink-0'>
-        <Link to={"/:id"}>
+        <button className='cursor-pointer' onClick={() => handleUpdate(todo)}>
           <FiEdit />
-        </Link>
+        </button>
         <button className='cursor-pointer' onClick={() => handleDelete(todo._id)}>
           <FiTrash2 className='text-red-600'/>
         </button>

@@ -11,10 +11,21 @@ export const getAllTodos = async (req, res) => {
   }
 }
 
+export const getTodo = async  (req, res) => {
+  try {
+    const { id } = req.params;
+    const todo = await Todo.findById(id)
+    return res.json(todo)
+  } catch (error) {
+    console.error("Error getting Todo in getTodo")
+    return res.status(500).json({message: "Internal server error"});
+  }
+}
+
 export const createTodo = async (req, res) => {
   try {
     const {title, status} = req.body;
-    const validStatuses = ['pending', 'in-progress', 'completed'];
+    const validStatuses = ['pending', 'completed'];
 
     if (!validStatuses.includes(status)) {
       return res.status(400).json({ message: "Invalid status value" });
