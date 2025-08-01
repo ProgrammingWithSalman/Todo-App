@@ -17,7 +17,7 @@ connectDB();
 
 const PORT = process.env.PORT || 5001
 app.listen(PORT, () => {
-  console.log("App is listening on PORT 5001")
+  console.log(`App is listening on PORT ${process.env.PORT}`)
 })
 
 
