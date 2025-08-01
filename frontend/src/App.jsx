@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { Toaster } from 'react-hot-toast'
 import TodoDetails from './pages/todoDetails.jsx'
 
+
 function App() {
  return (
   <>
