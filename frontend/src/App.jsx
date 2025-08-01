@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import { Toaster } from 'react-hot-toast'
-import TodoDetails from './pages/todoDetails.jsx'
+import TodoDetails from './pages/TodoDetails.jsx'
 
 
 function App() {
