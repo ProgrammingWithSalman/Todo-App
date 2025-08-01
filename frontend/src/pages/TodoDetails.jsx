@@ -9,7 +9,7 @@ const TodoDetails = () => {
 
   const getTodoDetails = async () => {
     console.log(id)
-    const todo = await axios.get(`http://localhost:5001/api/todos/${id}`)
+    const todo = await axios.get(`https://todo-app-ypai.onrender.com/api/todos/${id}`)
     setTodo(todo.data)
   }
 

@@ -16,7 +16,7 @@ const TodoItems =   ({ todos, onEdit, fetchTodos }) => {
   const handleDelete = async (e,id) => {
     e.preventDefault();
     try {
-      await axios.delete(`http://localhost:5001/api/todos/${id}`)
+      await axios.delete(`https://todo-app-ypai.onrender.com/api/todos/${id}`)
       toast.success("Deleted successfully!");
       fetchTodos();
     } catch (error) {
@@ -30,7 +30,7 @@ const TodoItems =   ({ todos, onEdit, fetchTodos }) => {
     e.preventDefault();
     e.stopPropagation()
     try {
-      await axios.put(`http://localhost:5001/api/todos/${id}`, {
+      await axios.put(`https://todo-app-ypai.onrender.com/api/todos/${id}`, {
         status: newStatus,
       });
       fetchTodos(); // Reload updated list

@@ -12,7 +12,7 @@ const Hero = () => {
 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/todos")
+      const res = await axios.get("https://todo-app-ypai.onrender.com/api/todos")
       setTodos(res.data);
       console.log(res.data)
     } catch (error) {
@@ -45,10 +45,10 @@ const Hero = () => {
 
       try {
         if(editId) {
-          await axios.put(`http://localhost:5001/api/todos/${editId}`, {title, status });
+          await axios.put(`https://todo-app-ypai.onrender.com/api/todos/${editId}`, {title, status });
           toast.success("Todo Updated!");
         } else {
-          await axios.post('http://localhost:5001/api/todos/', {title, status});
+          await axios.post('https://todo-app-ypai.onrender.com/api/todos/', {title, status});
           toast.success("Todo created!");
         }
         setTitle('')
