@@ -2,7 +2,7 @@ import Todo  from "../models/todo.models.js";
 
 export const getAllTodos = async (req, res) => {
   try {
-    const data = await Todo.find();
+    const data = await Todo.find({ user: req.user._id});
     console.log("Data fetched:", data);
     return res.status(200).json(data);
   } catch (error) {
@@ -33,7 +33,8 @@ export const createTodo = async (req, res) => {
 
     const newTodo = await Todo.create({
       title,
-      status
+      status,
+      user: req.user._id
     })
     return res.status(201).json({message: "Todo created successfully", todo: newTodo});
   } catch (error) {
@@ -53,7 +54,7 @@ export const updateTodo = async (req, res) => {
     }
 
 
-    const updatedTodo = await Todo.findByIdAndUpdate(id, {title, status}, {new: true});
+    const updatedTodo = await Todo.findByIdAndUpdate({_id: id, user: req.user._id}, {title, status}, {new: true});
     if (!updatedTodo) {
       return res.status(404).json({message: "Todo not found"});
     }
@@ -67,7 +68,7 @@ export const updateTodo = async (req, res) => {
 export const deleteTodo = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleledTodo = await Todo.findByIdAndDelete(id);
+    const deleledTodo = await Todo.findByIdAndDelete({_id: id, user: req.user._id});
     if (!deleledTodo) {
       return res.status(404).json({message: "Todo not found"});
     }
