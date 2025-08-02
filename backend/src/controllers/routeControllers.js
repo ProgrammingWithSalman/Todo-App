@@ -14,7 +14,7 @@ export const getAllTodos = async (req, res) => {
 export const getTodo = async  (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await Todo.findById(id)
+    const todo = await Todo.findById({_id: id, user: req.user._id})
     return res.json(todo)
   } catch (error) {
     console.error("Error getting Todo in getTodo")
@@ -68,12 +68,11 @@ export const updateTodo = async (req, res) => {
 export const deleteTodo = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleledTodo = await Todo.findByIdAndDelete({_id: id, user: req.user._id});
-    if (!deleledTodo) {
+    const deletedTodo = await Todo.findByIdAndDelete({_id: id, user: req.user._id});
+    if (!deletedTodo) {
       return res.status(404).json({message: "Todo not found"});
     }
     return res.status(200).json({message: "Todo deleted successfully"});
-
   } catch (error) {
     console.error("Error deleting todo:", error); 
     return res.status(500).json({message: "Internal server error"});
