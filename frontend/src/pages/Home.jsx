@@ -5,8 +5,10 @@ import Hero from '../components/Hero.jsx'
 const Home = () => {
   return (
     <>
+    <div className='ml-8'>
       <Navbar />
       <Hero />
+    </div>
     </>
   )
 }
