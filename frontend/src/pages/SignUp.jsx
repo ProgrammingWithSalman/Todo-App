@@ -75,7 +75,7 @@ const SignUp = () => {
           <p className='text-xl pt-3'>Already have an accounnt?<Link to={"/login"} className='text-blue-600'> Login</Link></p>
         </form>
         <div className='order-first md:order-last mb-5 md:mt-10 flex justify-center'>
-          <img src="public/signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />
+          <img src="/Signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />
         </div>
       </div>
     </div>

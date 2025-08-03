@@ -17,7 +17,7 @@ const Login = () => {
 
       localStorage.setItem("token", res.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-      
+
       setEmail('');
       setPassword('');
       navigate("/")
@@ -54,7 +54,7 @@ const Login = () => {
       
         </form>
         <div className='order-first md:order-last md:mt-10 flex justify-center'>
-          <img src="public/signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />
+          <img src="/Signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />
         </div>
       </div>
     </div>
