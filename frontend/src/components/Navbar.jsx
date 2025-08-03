@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-blue-600  shadow-md flex flex-col items-center gap-4 py-4 md:hidden">
+        <div className="absolute top-16 left-4 w-full bg-blue-600  shadow-md flex flex-col items-center gap-4 py-4 md:hidden">
           <Link to={"/"}>Home</Link>
         <Link to={"/"}>Explore</Link>
         <Link to={"/"}>About</Link>
