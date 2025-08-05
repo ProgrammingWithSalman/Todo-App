@@ -38,11 +38,11 @@ const SignUp = () => {
 
   return (
     <div className='flex items-center justify-center min-h-screen  py-4'>
-      <div className='flex flex-col md:grid md:grid-cols-2  w-[90%] lg:w-[60%] mx-autox bg-white h-[90%] lg:h-[80vh] rounded-2xl px-3 md:px-6 py-4 md:py-10 shadow-2xl shadow-black' >
-        <form onSubmit={(e) => handleSignUp(e)} className='flex flex-col items-center md:py-5'>
+      <div className='flex flex-col md:grid md:grid-cols-2  w-[90%] lg:w-[60%] mx-auto bg-white h-[90%] lg:h-[85vh] rounded-2xl px-3 md:px-6 py-4 md:py-10 shadow-2xl shadow-black' >
+        <form onSubmit={(e) => handleSignUp(e)} className='flex flex-col items-center md:py-3'>
           <h1 className='text-3xl md:text-4xl font-bold pb-3'>Sign Up</h1>
           <input
-            className=' px-4 py-3 md:py-5 text-xl md:text-2xl mt-3 md:m-4 border border-gray-700 rounded-xl font-semibold' 
+            className=' px-4 py-2 md:py-3 text-xl md:text-xl mt-3 md:mb-3 border border-gray-700 rounded-xl font-semibold' 
             type="text" 
             name='username'  
             placeholder='Username'
@@ -50,7 +50,7 @@ const SignUp = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
             <input
-              className='px-4 py-3 md:py-5 text-xl md:text-2xl mt-3 md:m-4 border border-gray-700 rounded-xl font-semibold' 
+              className='px-4 py-3 md:py-3 text-xl md:text-xl mt-3 md:mb-3 border border-gray-700 rounded-xl font-semibold' 
               type="text" 
               name='email' 
               placeholder='Email'
@@ -58,7 +58,7 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           <input
-            className='px-4 py-3 md:py-5 text-xl  md:text-2xl mt-3 md:m-4 border border-gray-700 rounded-xl font-semibold' 
+            className='px-4 py-3 md:py-3 text-xl  md:text-xl mt-3 md:mb-3 border border-gray-700 rounded-xl font-semibold' 
             type="text" 
             name='password' 
             placeholder='Password'
@@ -67,7 +67,7 @@ const SignUp = () => {
           />
           <button 
             type='submit'
-            className='bg-[#0cddcb] text-black px-7 py-3 rounded-full font-bold text-xl md:text-2xl mt-3 cursor-pointer'
+            className='bg-[#0cddcb] text-black px-7 py-3 rounded-full font-bold text-xl md:text-xl mt-3 cursor-pointer'
           >
             Sign Up
           </button>
@@ -75,7 +75,7 @@ const SignUp = () => {
           <p className='text-xl pt-3'>Already have an account?<Link to={"/login"} className='text-blue-600'> Login</Link></p>
         </form>
         <div className='order-first md:order-last mb-5 md:mt-10 flex justify-center'>
-          <img src="/Signup.jpeg" alt="image" className="w-[70%] sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto lg:h-[90%] object-cover" />
+          <img src="/Signup.jpeg" alt="image" className="w-[70%] sm:w-[300px] md:w-[400px] lg:w-[400px] h-auto lg:h-[90%] object-cover" />
         </div>
       </div>
     </div>

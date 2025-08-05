@@ -32,7 +32,7 @@ const Login = () => {
         <form onSubmit={(e) => handleLogin(e)} className='flex flex-col items-center justify-center md:py-5'>
           <h1 className='text-4xl font-bold pb-3'>Login</h1>
           <input
-            className='px-4 py-3 md:py-5 text-xl md:text-2xl mt-3 md:m-4 border border-gray-700 rounded-xl font-semibold' 
+            className='px-4 py-3 md:py-4 text-xl md:text-xl mt-3 md:mb-3 border border-gray-700 rounded-xl font-semibold' 
             type="text" 
             name='email' 
             placeholder='Email'
@@ -40,7 +40,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className='px-4 py-3 md:py-5 text-xl md:text-2xl mt-3 md:m-4 border border-gray-700 rounded-xl font-semibold' 
+            className='px-4 py-3 md:py-4 text-xl md:text-xl mt-3 md:mb-3 border border-gray-700 rounded-xl font-semibold' 
             type="text" 
             name='password' 
             placeholder='Password'
@@ -48,9 +48,9 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           
-          <button type='submit' className='bg-[#0cddcb] text-black px-7 py-3 rounded-full font-bold text-2xl mt-5 cursor-pointer'>Login</button>
+          <button type='submit' className='bg-[#0cddcb] text-black px-7 py-3 rounded-full font-bold text-xl mt-5 cursor-pointer'>Login</button>
 
-          <p className='text-xl pt-3'>Don't have an accounnt?<Link to={"/signup"} className='text-blue-600'> Signup</Link></p>
+          <p className='text-xl pt-3'>Don't have an account?<Link to={"/signup"} className='text-blue-600'> Signup</Link></p>
       
         </form>
         <div className='order-first md:order-last md:mt-10 flex justify-center'>
