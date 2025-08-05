@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <div className='flex items-center justify-center min-h-screen  py-4'>
-      <div className='grid md:grid-cols-2 w-[90%] md:w-[50%] mx-autox bg-white h-[90%] md:h-[70vh] rounded-2xl md:px-6 md:py-10 shadow-2xl shadow-black' >
+      <div className='grid md:grid-cols-2 w-[90%] md:w-[50%] mx-autox bg-white h-[90%] md:h-[70vh] rounded-2xl px-3 md:px-6 py-4 md:py-10 shadow-2xl shadow-black' >
         <form onSubmit={(e) => handleSignUp(e)} className='flex flex-col items-center md:py-5'>
           <h1 className='text-4xl font-bold pb-3'>Sign Up</h1>
           <input
@@ -72,7 +72,7 @@ const SignUp = () => {
             Sign Up
           </button>
 
-          <p className='text-xl pt-3'>Already have an accounnt?<Link to={"/login"} className='text-blue-600'> Login</Link></p>
+          <p className='text-xl pt-3'>Already have an account?<Link to={"/login"} className='text-blue-600'> Login</Link></p>
         </form>
         <div className='order-first md:order-last mb-5 md:mt-10 flex justify-center'>
           <img src="/Signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />

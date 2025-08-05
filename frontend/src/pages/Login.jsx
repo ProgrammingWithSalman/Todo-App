@@ -50,11 +50,11 @@ const Login = () => {
           
           <button type='submit' className='bg-[#0cddcb] text-black px-7 py-3 rounded-full font-bold text-2xl mt-5 cursor-pointer'>Login</button>
 
-          <p className='text-xl pt-3'>Don't have an accounnt?<Link to={"/signup"} className='text-blue-600'> SignUp</Link></p>
+          <p className='text-xl pt-3'>Don't have an accounnt?<Link to={"/signup"} className='text-blue-600'> Signup</Link></p>
       
         </form>
         <div className='order-first md:order-last md:mt-10 flex justify-center'>
-          <img src="/Signup.jpeg" alt="image" className="w-[300px]  md:w-[600px] h-auto object-cover" />
+          <img src="/Signup.jpeg" alt="image" className="w-[200px] sm:w-[300px]  md:w-[600px] h-auto object-cover" />
         </div>
       </div>
     </div>
