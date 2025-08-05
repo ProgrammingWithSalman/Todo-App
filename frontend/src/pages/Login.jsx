@@ -28,7 +28,7 @@ const Login = () => {
   }
  return (
     <div className='flex items-center justify-center min-h-screen  py-4'>
-      <div className='flex flex-col md:grid md:grid-cols-2 w-[90%] md:w-[50%] mx-auto bg-white h-[90%] md:h-[70vh] rounded-2xl pb-7 md:px-6 md:py-10 shadow-2xl shadow-black' >
+      <div className='flex flex-col md:grid md:grid-cols-2 w-[90%] md:w-[70%] lg:w-[50%] mx-auto bg-white h-[90%] lg:h-[70vh] rounded-2xl pb-7 md:px-6 md:py-10 shadow-2xl shadow-black' >
         <form onSubmit={(e) => handleLogin(e)} className='flex flex-col items-center justify-center md:py-5'>
           <h1 className='text-4xl font-bold pb-3'>Login</h1>
           <input
